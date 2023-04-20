@@ -1,0 +1,27 @@
+<h3>Listado de Héroes</h3>
+
+<!-- El msj del heroe eliminado aparece si hay heroe eliminados,
+de lo contrario no se muestra y muestra el h3 del ng-template -->
+<div *ngIf="deletHero; else nothingWasDeleted">
+  <h3>
+    Héroe borrado <small class="text-danger">{{ deletHero }}</small>
+  </h3>
+</div>
+
+<ng-template #nothingWasDeleted>
+  <h3>No a borrado nada</h3>
+</ng-template>
+
+<!-- ngIf  // button se va a mostrar siempre y cuando haya heroName en el arreglo
+de ser 0, el button desaparece -->
+<button
+  *ngIf="heroNames.length > 0"
+  (click)="removeLastHero()"
+  class="btn btn-outline-danger"
+>
+  Borrar último héroe
+</button>
+
+<ul class="mt-2 list-group">
+  <li *ngFor="let name of heroNames" class="list-group-item">{{ name }}</li>
+</ul>
