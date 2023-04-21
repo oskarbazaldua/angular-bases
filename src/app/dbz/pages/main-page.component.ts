@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { dbzService } from '../services/dbz.service';
 
 @Component({
   selector: 'app-dbz-main-page',
@@ -6,6 +7,5 @@ import { Component } from '@angular/core';
 })
 
 export class MainPageComponent {
-
-
+  constructor(public dbzService: dbzService) {}
 }
