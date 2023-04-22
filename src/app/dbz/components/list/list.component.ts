@@ -14,12 +14,19 @@ export class ListComponent {
     power: 10
   }]
 
-  @Output()
-  public onDelete: EventEmitter<number> = new EventEmitter();
 
-  onDeletCharacter(index: number): void {
-    // TODO Emitir ID del personaje
-    this.onDelete.emit( index );
+  @Output()
+  public onDelete: EventEmitter<string> = new EventEmitter();
+
+
+
+  //onDeletCharacter espera recibir un string | undefined
+  //por ese motivo se pone el signo ? y se realiza la condicional if
+  onDeletCharacter(id?: string): void {
+    //si el id no existe ! no envia nada
+    if (!id) return;
+
+    this.onDelete.emit( id );
   }
 
 }
